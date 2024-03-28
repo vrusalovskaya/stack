@@ -1,11 +1,13 @@
 import junit.framework.TestCase;
 import org.stack.Stack;
+import org.stack.StackIsEmptyException;
+import org.stack.StackLL;
 
 public class StackTest extends TestCase {
 
-    Stack stack = new Stack();
+    StackLL stack = new StackLL();
 
-    public void testPush_Value_ValueAddedToStack() throws Exception {
+    public void testPush_Value_ValueAddedToStack() throws StackIsEmptyException {
         String value = "test123";
 
         stack.push(value);
@@ -14,16 +16,16 @@ public class StackTest extends TestCase {
         assertEquals(value, result);
     }
 
-    public void testPick_Value_TopPicked() throws Exception {
+    public void testPick_Value_TopPicked() throws StackIsEmptyException {
         String value = "top";
         stack.push(value);
 
         var result = stack.pick();
 
-        assertEquals(result, stack.getTopValue());
+        assertEquals(result, value);
     }
 
-    public void testPop_2ValuesPushed_LastPushedValueReturned() throws Exception {
+    public void testPop_2ValuesPushed_LastPushedValueReturned() throws StackIsEmptyException {
         String str1 = "1";
         String str2 = "2";
         stack.push(str1);

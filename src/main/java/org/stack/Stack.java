@@ -18,10 +18,6 @@ public class Stack {
         return top;
     }
 
-    public String getTopValue() {
-        return stack[top];
-    }
-
     public void push(String value) {
         if (top == currentCapacity - 1) {
             currentCapacity = currentCapacity * 2;
@@ -30,13 +26,13 @@ public class Stack {
         stack[++top] = value;
     }
 
-    public String pick() throws Exception {
-        if (isEmpty()) throw new Exception("The stack is empty");
+    public String pick() throws StackIsEmptyException {
+        if (isEmpty()) throw new StackIsEmptyException();
         return stack[top];
     }
 
-    public String pop() throws Exception {
-        if (isEmpty()) throw new Exception("The stack is empty");
+    public String pop() throws StackIsEmptyException {
+        if (isEmpty()) throw new StackIsEmptyException();
         String temp = stack[top];
         top--;
         return temp;
