@@ -1,15 +1,16 @@
 package org.stack;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Stack {
+public class Stack<T> {
     private int top;
     private int currentCapacity;
-    String[] stack;
+    private T[] stack;
 
-    public Stack() {
-        stack = new String[5];
+    public Stack(Class<T> clazz) {
+        stack = createNewArray(clazz, 5);
         top = -1;
         currentCapacity = 5;
     }
@@ -18,7 +19,7 @@ public class Stack {
         return top;
     }
 
-    public void push(String value) {
+    public void push(T value) {
         if (top == currentCapacity - 1) {
             currentCapacity = currentCapacity * 2;
             stack = Arrays.copyOf(stack, currentCapacity);
@@ -26,14 +27,14 @@ public class Stack {
         stack[++top] = value;
     }
 
-    public String pick() throws StackIsEmptyException {
+    public T pick() throws StackIsEmptyException {
         if (isEmpty()) throw new StackIsEmptyException();
         return stack[top];
     }
 
-    public String pop() throws StackIsEmptyException {
+    public T pop() throws StackIsEmptyException {
         if (isEmpty()) throw new StackIsEmptyException();
-        String temp = stack[top];
+        T temp = stack[top];
         top--;
         return temp;
     }
@@ -42,4 +43,7 @@ public class Stack {
         return Objects.equals(top, -1);
     }
 
+    private T[] createNewArray(Class<T> c, int size) {
+        return (T[])Array.newInstance(c, size);
+    }
 }

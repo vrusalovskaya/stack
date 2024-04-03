@@ -5,7 +5,7 @@ import org.stack.StackLL;
 
 public class StackTest extends TestCase {
 
-    StackLL stack = new StackLL();
+    Stack<String> stack = new Stack<>(String.class);
 
     public void testPush_Value_ValueAddedToStack() throws StackIsEmptyException {
         String value = "test123";

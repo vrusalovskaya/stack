@@ -78,13 +78,22 @@
       <option name="project" value="LOCAL" />
       <updated>1711632506714</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add custom exception, add stack implementation based on the linked list">
+      <option name="closed" value="true" />
+      <created>1711634503480</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711634503480</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="add Stack and StackTest classes" />
     <MESSAGE value="make stack dynamic, improve tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="make stack dynamic, improve tests" />
+    <MESSAGE value="add custom exception, add stack implementation based on the linked list" />
+    <option name="LAST_COMMIT_MESSAGE" value="add custom exception, add stack implementation based on the linked list" />
   </component>
 </project>

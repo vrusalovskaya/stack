@@ -1,12 +1,12 @@
 package org.stack;
 
-public class StackLL {
+public class StackLL<T> {
 
     private class Node {
-        String data;
+        T data;
         Node next;
 
-        Node (String data){
+        Node (T data){
             this.data = data;
             next = null;
         }
@@ -15,27 +15,27 @@ public class StackLL {
             return next;
         }
 
-        public String getData() {
+        public T getData() {
             return data;
         }
     }
 
     Node root;
 
-    public void push (String value){
+    public void push (T value){
         Node newNode = new Node(value);
         newNode.next = root;
         root = newNode;
     }
 
-    public String pick() throws StackIsEmptyException {
+    public T pick() throws StackIsEmptyException {
         if (isEmpty()) throw new StackIsEmptyException();
         return root.data;
     }
 
-public String pop() throws StackIsEmptyException {
+public T pop() throws StackIsEmptyException {
     if (isEmpty()) throw new StackIsEmptyException();
-    String temp = root.data;
+    T temp = root.data;
     root = root.next;
     return temp;
 }
